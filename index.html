@@ -57,7 +57,7 @@
 										<header class="major">
 											<h2>Summary</h2>
 										</header>
-										<p>I am a graduate student at CMU MSIT program with skills in Web Development, Front-end design and Cloud Computing. 
+										<p>I am a graduate student at CMU MSIT program with skills in Web Development, Front-end design and Cloud Computing.
 										<br> Email: zhehaow AT andrew.cmu.edu
 										<br> View my <a href="images/Resume.pdf">resume</a>
 										</p>
@@ -95,9 +95,9 @@
 										Shanghai, China</p>
 									</li>
 								</ul>
-								
+
 							</section>
-						
+
 						<!-- Experience Section -->
 							<section id="Experience" class="main special">
 								<header class="major">
@@ -145,7 +145,7 @@
 									<br>
 									<i>February 2017 -- March 2017</i>
 									<br>
-									<ul> 
+									<ul>
 									<li>
 										Configured, populated and deployed both SQL and NoSQL databases in a social network web service context.
 									</li>
@@ -170,7 +170,7 @@
 											Used AWS and Azure APIs to programmatically control cloud resources in response to demand.
 										</li>
 										<li>
-											Deployed an Elastic Load Balancer along with Auto Scaling Group on Azure and AWS, and set up CloudWatch 
+											Deployed an Elastic Load Balancer along with Auto Scaling Group on Azure and AWS, and set up CloudWatch
 											as well as Scaling Policy through Java APIs.
 										</li>
 										<li>
@@ -201,7 +201,7 @@
 									</ul>
 								</p>
 
-								<p> 
+								<p>
 								<b>Big Data Analytics Using MapReduce</b>
 								<br>
 								<i>January 2017 -- February 2017</i>
@@ -254,7 +254,7 @@
 								Art lover, Street Culture lover
 								</p>
 								<p>
-								Homepage with more personal facts <a href=""> HERE</a> (under constructing)
+								Homepage with more personal facts <a href="homepage/index.html"> HERE</a> (under constructing)
 								</p>
 							</section>
 
@@ -263,7 +263,8 @@
 					<footer id="footer">
 						<p class="copyright">&copy; 2016 - 2018 Zhehao (Vince) Wu
 						<br>
-						Hosted on <a href="https://github.com">GitHub</a> | Designed by <a href="https://html5up.net">HTML5 UP</a></p>
+						Hosted on <a href="https://github.com">GitHub</a> | Designed by <a href="https://html5up.net">HTML5 UP</a> | Some <a href="homepage/index.html">acdemic summary</a></p>
+
 					</footer>
 
 			</div>
@@ -276,6 +277,57 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script language=JavaScript>
+			<!--
+			var caution = false
+			function setCookie(name, value, expires, path, domain, secure) {
+				var curCookie = name + "=" + escape(value) +
+				((expires) ? "; expires=" + expires.toGMTString() : "") +
+				((path) ? "; path=" + path : "") +
+				((domain) ? "; domain=" + domain : "") +
+				((secure) ? "; secure" : "")
+				if (!caution || (name + "=" + escape(value)).length <= 4000)
+				document.cookie = curCookie
+				else
+				if (confirm("Cookie exceeds 4KB and will be cut!"))
+				document.cookie = curCookie
+			}
+			function getCookie(name) {
+				var prefix = name + "="
+				var cookieStartIndex = document.cookie.indexOf(prefix)
+				if (cookieStartIndex == -1)
+				return null
+				var cookieEndIndex = document.cookie.indexOf(";", cookieStartIndex + prefix.length)
+				if (cookieEndIndex == -1)
+				cookieEndIndex = document.cookie.length
+				return (document.cookie.substring(cookieStartIndex + prefix.length, cookieEndIndex))
+			}
+			function deleteCookie(name, path, domain) {
+				if (getCookie(name)) {
+					document.cookie = name + "=" +
+					((path) ? "; path=" + path : "") +
+					((domain) ? "; domain=" + domain : "") +
+					"; expires=Thu, 01-Jan-70 00:00:01 GMT"
+				}
+			}
+			function fixDate(date) {
+				var base = new Date(0)
+				var skew = base.getTime()
+				if (skew > 0)
+				date.setTime(date.getTime() - skew)
+			}
+			var now = new Date()
+			fixDate(now)
+			now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000)
+			var visits = getCookie("counter")
+			if (!visits)
+			visits = 1
+			else
+			visits = parseInt(visits) + 1
+			setCookie("counter", visits, now)
+			document.write("You are the " + visits + " visitor！")
+			// -->
+			</script>
 
 	</body>
 </html>
