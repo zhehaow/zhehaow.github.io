@@ -1,0 +1,167 @@
+	<!DOCTYPE HTML>
+	<!--
+		Phantom by HTML5 UP
+		html5up.net | @ajlkn
+		Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	-->
+	<html>
+		<head>
+			<title>Generic - Phantom by HTML5 UP</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+			<link rel="stylesheet" href="assets/css/main.css" />
+			<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+			<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		</head>
+		<body>
+			<!-- Wrapper -->
+				<div id="wrapper">
+
+					<!-- Header -->
+						<header id="header">
+							<div class="inner">
+
+								<!-- Logo -->
+									<a href="index.html" class="logo">
+										<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
+									</a>
+
+								<!-- Nav -->
+									<nav>
+										<ul>
+											<li><a href="#menu">Menu</a></li>
+										</ul>
+									</nav>
+
+							</div>
+						</header>
+
+					<!-- Menu -->
+						<nav id="menu">
+							<h2>Menu</h2>
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="java.html">Java Tricks</a></li>
+								<li><a href="leet.html">LeetCode</a></li>
+								<li><a href="music.html">Music</a></li>
+								<li><a href="movie.html">Movies</a></li>
+								<li><a href="personal.html">Personal</a></li>
+							</ul>
+						</nav>
+
+					<!-- Main -->
+						<div id="main">
+							<div class="inner">
+								<h1>Binary Search</h1>
+								<h2>Template</h2>
+								<p>
+								<pre>
+								<code>
+// version 1: with jiuzhang template
+public class Solution {
+    /**
+     * @param A an integer array sorted in ascending order
+     * @param target an integer
+     * @return an integer
+     */
+    public int findPosition(int[] nums, int target) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        
+        int start = 0, end = nums.length - 1;
+        while (start + 1 < end) {
+            int mid = start + (end - start) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                start = mid;
+            } else {
+                end = mid;
+            }
+        }
+        
+        if (nums[start] == target) {
+            return start;
+        }
+        if (nums[end] == target) {
+            return end;
+        }
+        return -1;
+    }
+}
+
+// version 2: without jiuzhang template
+public class Solution {
+    /**
+     * @param A an integer array sorted in ascending order
+     * @param target an integer
+     * @return an integer
+     */
+    public int findPosition(int[] nums, int target) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        
+        int start = 0, end = nums.length - 1;
+        while (start < end) {
+            int mid = start + (end - start) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+        
+        if (nums[start] == target) {
+            return start;
+        }
+        return -1;
+    }
+}
+								</code></pre>
+	</p>
+
+
+	<h2><a href="https://leetcode.com/problems/heaters/#/description">475 Heaters</a></h2>
+	<p><pre><code>
+public class Solution {
+    public int findRadius(int[] houses, int[] heaters) {
+        Arrays.sort(heaters);
+        int result = Integer.MIN_VALUE;
+        
+        for (int house : houses) {
+            int index = Arrays.binarySearch(heaters, house);
+            if (index < 0) {
+        	index = -(index + 1);
+            }
+            int dist1 = index - 1 >= 0 ? house - heaters[index - 1] : Integer.MAX_VALUE;
+            int dist2 = index < heaters.length ? heaters[index] - house : Integer.MAX_VALUE;
+        
+            result = Math.max(result, Math.min(dist1, dist2));
+        }
+        
+        return result;
+    }
+}
+	</code></pre></p>							
+	                       </div>
+						</div>
+
+					<!-- Footer -->
+					
+
+				</div>
+
+			<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/skel.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+				<script src="assets/js/main.js"></script>
+
+		</body>
+	</html>
